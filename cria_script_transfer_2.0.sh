@@ -1,13 +1,14 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ############################################################
 # Author: Ardison Rubim        				   #
 # Linkedin: https://www.linkedin.com/in/ardison-rubim/     #
 # WhatsApp: (98) 98497-6673				   #
-#                              				   #
-# Date: 27/02/2024     					   #
 #							   #
-# Author: Ardison Rubim					   #
+# Nome: cria_script_transfer_2.0.sh		  	   #
+#                              				   #
+# Date: 27/02/2024 - Ardison Rubim    			   #
+#							   #
 # Update02: 17/03/2024 - Ardison Rubim			   #
 #							   #
 # Description01: Script para gerar script de transferência #
@@ -20,56 +21,39 @@
 ############################################################
 
 
-echo "#!/bin/bash" > transfer.sh
+# Comando para gerar script transfer.sh
+echo "#!/usr/bin/env bash" > transfer.sh
 echo "" >> transfer.sh
 
-###############################################################
-#-------------------------------------------------------------#
-# Gerando Logo					              #
-echo " echo ' ____   ___  _     ___  ____ '  " >> transfer.sh
-echo " echo '|  _  |  _ /| |   / _ \/ ___|'  " >> transfer.sh
-echo " echo '| |_) | | | | |  | | |/\___/\'  " >> transfer.sh
-echo " echo '|  __/| |_| | |__| |_| |___) |' " >> transfer.sh
-echo " echo '|_|    \___/|_____\___/|____/'  " >> transfer.sh
-echo ''>> transfer.sh
+echo "echo 'Iniciando a transferencia'" >> transfer.sh
 echo "sleep 2" >> transfer.sh
 
 echo "" >> transfer.sh
-#-------------------------------------------------------------#
-###############################################################
 
-
-# Verifique o nome da atual do script
+# Nome da atual do script
 SCRIPT="cria_script_transfer_2.0.sh"
 
 echo "Verificando o espaço no diretório atual..."
-# Total de arquivos
+# Tamanho do diretorio
 TOTAL=$(du -sh)
 
 # Especifique o caminho de destino dos arquivo
 FILE="/mnt/examesantigos3/2023/1/"
 
-# Especifique o caminho de origem
-#FILEPWD="/mnt/2023/1"
+# Especifique o caminho de origem depois do ls
 FILEPWD=$(ls /mnt/2023/1 | sort -n)
 
 echo "Total a ser transferido: '$TOTAL'"
 sleep 2
 echo ""
 
-
-# Comando para gerar script
 echo "#Total: "$TOTAL" " >> transfer.sh
 echo "" >> transfer.sh
 echo "Gerando script de transferencia"
 echo ""
 echo "" >> transfer.sh
 
-#Variável FILEPWD abaixo já guarda o caminho de origem
-#------------------------------------------------------#
-#------------------------------------------------------#
-
-# Loop para percorrer as pastas na pasta de origem
+# Loop para percorrer as pastas no diretorio de origem
 for pasta in $FILEPWD; do
     # Verifica se o nome da pasta é diferente dos scripts gerados
     if [[ $pasta != "transfer.sh" && $pasta != "$SCRIPT" ]]; then
@@ -81,7 +65,6 @@ done
 
 echo "" >> transfer.sh
 echo "echo 'Transferencia Concluida!'" >> transfer.sh
-
 
 # Apos a execucao o sera gerado um script chamado transfer.sh
 # Lembre-se de dar permissacao de execucao com o comando chmod +x transfer.sh
