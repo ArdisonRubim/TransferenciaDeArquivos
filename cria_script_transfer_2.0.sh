@@ -40,7 +40,7 @@ TOTAL=$(du -sh)
 # Especifique o caminho de destino dos arquivo
 FILE="/mnt/examesantigos3/2023/1/"
 
-# Caminho de origem
+# Caminho de origem, certifique-se de estar no diretorio dos arquivos que deseja transferir.
 SOURCE_FILES=$(ls "$PWD" | sort -n)
 
 echo "Total a ser transferido: '$TOTAL'"
