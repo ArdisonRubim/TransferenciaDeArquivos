@@ -40,8 +40,8 @@ TOTAL=$(du -sh)
 # Especifique o caminho de destino dos arquivo
 FILE="/mnt/examesantigos3/2023/1/"
 
-# Especifique o caminho de origem depois do ls
-FILEPWD=$(ls /mnt/2023/1 | sort -n)
+# Caminho de origem
+SOURCE_FILES=$(ls "$PWD" | sort -n)
 
 echo "Total a ser transferido: '$TOTAL'"
 sleep 2
@@ -54,12 +54,12 @@ echo ""
 echo "" >> transfer.sh
 
 # Loop para percorrer as pastas no diretorio de origem
-for pasta in $FILEPWD; do
-    # Verifica se o nome da pasta é diferente dos scripts gerados
-    if [[ $pasta != "transfer.sh" && $pasta != "$SCRIPT" ]]; then
-        echo "Criando script, pasta $pasta "
+for PASTE in $SOURCE_FILES; do
+    # Verifica se o nome da PASTE é diferente dos scripts gerados
+    if [[ $PASTE != "transfer.sh" && $PASTE != "$SCRIPT" ]]; then
+        echo "Criando script, PASTE $PASTE "
         sleep 0.3
-        echo "rsync -havPuz $pasta/* $FILE$pasta/" >> transfer.sh
+        echo "rsync -havPuz $PASTE/* $FILE$PASTE/" >> transfer.sh
     fi
 done
 
