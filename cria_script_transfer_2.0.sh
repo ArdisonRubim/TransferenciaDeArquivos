@@ -66,9 +66,9 @@ done
 echo "" >> transfer.sh
 echo "echo 'Transferencia Concluida!'" >> transfer.sh
 
-# Apos a execucao o sera gerado um script chamado transfer.sh
-# Lembre-se de dar permissacao de execucao com o comando chmod +x transfer.sh
-# Em seguida execute!
+# Apos a execucao, sera gerado um script chamado transfer.sh
+# Lembre-se de dar permissao de execucao com o comando abaixo:
+# chmod +x transfer.sh
 
 echo ""
 echo 'Script transfer.sh criado com sucesso!'
